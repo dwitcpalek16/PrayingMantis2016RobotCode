@@ -1,0 +1,68 @@
+#
+#------------------------------------------------------------------------------------------------
+# Command Names
+#------------------------------------------------------------------------------------------------
+# 1  - PickUpBoulder
+# 2  - ShootBoulderLowGoal
+# 3  - ShootBoulderHighGoal
+# 4  - HoldBoulder
+# 5  - MoveArmToLiftPortcullisPosition
+# 6  - LiftPortcullis
+# 7  - LowerChevalDeFrise
+# 8  - MoveArmToReachDrawBridge
+# 9  - LowerDrawBridge
+# 10 - MoveArmToReachSallyPort
+# 11 - OpenSallyPort
+# 12 - ReachForClimbBar
+# 13 - GrabClimbBar
+# 14 - LiftRobot
+#
+#------------------------------------------------------------------------------------------------
+# Button States (may need to add triggers latter too)
+#------------------------------------------------------------------------------------------------
+# 1 - whenPressed
+# 2 - whenReleased
+# 3 - whileHeld
+#
+#------------------------------------------------------------------------------------------------
+# Button Numbers on the Logitech Gamepad
+#------------------------------------------------------------------------------------------------
+# 1  - Blue X (X)
+# 2  - Green A (A)
+# 3  - Red B (B)
+# 4  - Yellow Y (Y)
+# 5  - Upper Left Trigger (UpperLeftTrigger)
+# 6  - Upper Right Trigger (UpperRightTrigger)
+# 7  - Lower Left Trigger (LowerLeftTrigger)
+# 8  - Lower Right Trigger (LowerRightTrigger)
+# 9  - Back Button (BackButton)
+# 10 - Start Button (StartButton)
+#
+#------------------------------------------------------------------------------------------------
+# Joystick Number to associate the commands to
+#------------------------------------------------------------------------------------------------
+# 1 - DriverJoystick
+# 2 - CoPilotJoystick
+#
+#------------------------------------------------------------------------------------------------
+#
+# Format
+#
+# JoystickID, ButtonNumber, ButtonState, Command
+#
+# So, for example, to assign pickup boulder to button 1 (Blue X) on the Co-Pilots Joystick would be:
+#------------------------------------------------------------------------------------------------
+#
+#1, 1, 1, PickUpBoulder
+#
+#------------------------------------------------------------------------------------------------
+# Other ideas would be to be
+# - fully text based
+#------------------------------------------------------------------------------------------------
+#
+CoPilotJoystick, X, whenPressed, ShootBoulderHighGoal
+#------------------------------------------------------------------------------------------------
+# - fully ID based
+#------------------------------------------------------------------------------------------------
+#
+#1, 1, 1, 1

@@ -1,0 +1,73 @@
+General Items:
+1) 	Don't take default visibilities; always specify Public, Protected or Private.  
+	Many class attributes don't have a specification, so the default is used.
+	
+2)  Remember Java Naming Conventions
+	Class Name 	- initial upper case letter then camel case (acronyms are all upper case). Example: DropBoulder
+	Method Name - initial lower case letter then camel case (exception is the constructor that 
+				  is the same as the class name).  Example: setState()
+	Member Variable (attributes) - m_ followed by the variable name starting with a lower case letter 
+				  example m_leftTalon.
+	local Variable - initial lower case letter then camel case Example targetAngle
+	
+3) Use meaningful names.  For instance, we have method names that is called 
+   setMotorSpeed that takes an parameter of target.  The method name implies
+   that it is going to set a motor speed but it doesn't take in a motor, so which 
+   one?  Target is a double, so that isn't it, but it would be reasonable to expect 
+   that that is a speed.  However it isn't it is a angle value.  The JavaDoc doesn't 
+   clear this up much, though, a little even with the typo 
+	
+4) Our convention is to have the {} line up on separate lines: Example
+   if( a < b )
+   {
+   }
+   else
+   {
+   }
+
+5) Comparing doubles or floats should have a tolerance. Example: 
+	instead of:
+			if(difference == smallestAngle)
+    use 
+    		if ( Math.abs( difference - smallestAngle ) < tolerance )
+    		
+
+6) Use RobotMap Constants instead of local values
+    
+   
+7) Remember to not assume things worked correctly.  For example, many WPILIB methods can throw 
+   exceptions, so we need try/catch blocks around them.  Example:
+       double proportionalConstant = 0.0;
+       try
+       {
+           proportionalConstant = SmartDashboard.getNumber("p-constant");
+       }
+       catch ( NetworkTableKeyNotDefined | IllegalArgumentException exception )
+       {
+           SmartDashboard.putString( "Constant Read Error", exception.toString() );
+       }
+
+8) Remember JavaDoc - it should tell the potential caller of your method what is being done,
+   how it is being done, what values need to be passed in.  For instance, if you have a method
+   that works with encoder data, having an input parameter that is called value and you 
+   document it as encoder value, the person calling your routine may assume it is raw 
+   encoder counts and you may be expecting the data to have been converted to velocity.
+   
+   JavaDoc - 
+   
+   Class should document:
+    - What is the class supposed to do?
+    - What motors/sensors is it controlling
+    - Are there any assumptions or pre-requisites for this class
+    
+   Methods should document:
+   - what is it supposed to do
+   - how does it do it (e.g. are we using a PID, a motion profile, some other means)
+   - any assumptions/pre-requisites
+   
+9) Delete commented code (especially if it isn't going to come back in).  If it is commented 
+   out because it isn't working but will be coming back in, add some detail as to why it isn't
+   working.  Others may be able to help you figure out why it isn't working.
+      
+10) when working with doubles or floats, don't let the compiler convert your integer to that value type
+    (e.g. use 1.0 instead of 1).
